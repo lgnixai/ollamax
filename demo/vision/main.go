@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/byebyebruce/ollamax"
+	"github.com/lgnixai/ollamax"
 	"github.com/ollama/ollama/api"
 )
 

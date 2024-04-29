@@ -17,7 +17,7 @@ go >= 1.22
     ```
 2. Add submodule
     ```bash
-    git submodule add https://github.com/byebyebruce/ollamax.git
+    git submodule add https://github.com/lgnixai/ollamax.git
     ```
    
 3. Init go work
@@ -32,7 +32,7 @@ go >= 1.22
 5. Write a test code
    ```go
    import(
-       "github.com/byebyebruce/ollamax"
+       "github.com/lgnixai/ollamax"
    )
 
    if err := ollamax.Init(); err != nil {

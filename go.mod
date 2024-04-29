@@ -1,4 +1,4 @@
-module github.com/byebyebruce/ollamax
+module github.com/lgnixai/ollamax
 
 go 1.22.0
 

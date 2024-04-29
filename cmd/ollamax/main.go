@@ -10,8 +10,8 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/byebyebruce/ollamax"
 	"github.com/fatih/color"
+	"github.com/lgnixai/ollamax"
 	"github.com/ollama/ollama/api"
 	"github.com/spf13/cobra"
 )

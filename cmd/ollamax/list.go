@@ -3,7 +3,7 @@ package main
 import (
 	"sort"
 
-	"github.com/byebyebruce/ollamax"
+	"github.com/lgnixai/ollamax"
 	"github.com/olekukonko/tablewriter"
 	"github.com/ollama/ollama/format"
 	"github.com/spf13/cobra"

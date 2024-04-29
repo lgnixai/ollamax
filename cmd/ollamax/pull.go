@@ -1,9 +1,8 @@
 package main
 
 import (
-	"github.com/byebyebruce/ollamax"
+	"github.com/lgnixai/ollamax"
 	"github.com/ollama/ollama/api"
-	"github.com/schollz/progressbar/v3"
 	"github.com/spf13/cobra"
 )
 
