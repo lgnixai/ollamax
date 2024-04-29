@@ -15,7 +15,7 @@ var (
 	model = flag.String("model", "llava", "model to use")
 )
 
-//go:embed ollama.png
+//go:embed 2.jpg
 var imageRaw []byte
 
 func main() {
@@ -33,7 +33,7 @@ func main() {
 	defer o.Close()
 
 	resp, err := o.ChatStream(context.Background(),
-		[]api.Message{{"user", "please describe this image", []api.ImageData{imageRaw}}})
+		[]api.Message{{"user", "请用中文描述图片内容", []api.ImageData{imageRaw}}})
 	if err != nil {
 		panic(err)
 	}

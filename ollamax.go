@@ -4,15 +4,15 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"log/slog"
 	"runtime"
 	"sync"
+
+	"github.com/schollz/progressbar/v3"
 
 	"github.com/ollama/ollama/api"
 	"github.com/ollama/ollama/gpu"
 	"github.com/ollama/ollama/llm"
 	"github.com/ollama/ollama/server"
-	"github.com/schollz/progressbar/v3"
 )
 
 func init() {
@@ -42,9 +42,9 @@ type Ollamax struct {
 func New(model string) (*Ollamax, error) {
 	if runtime.GOOS == "linux" {
 		// check compatibility to log warnings
-		if _, err := gpu.CheckVRAM(); err != nil {
-			slog.Info(err.Error())
-		}
+		//if _, err := gpu.Cleanup.CheckVRAM(); err != nil {
+		//	slog.Info(err.Error())
+		//}
 	}
 
 	cm, err := load(model)

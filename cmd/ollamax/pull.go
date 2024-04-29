@@ -1,9 +1,11 @@
 package main
 
 import (
+	"github.com/schollz/progressbar/v3"
+	"github.com/spf13/cobra"
+
 	"github.com/lgnixai/ollamax"
 	"github.com/ollama/ollama/api"
-	"github.com/spf13/cobra"
 )
 
 func pullCMD() *cobra.Command {

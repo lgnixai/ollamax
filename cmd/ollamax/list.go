@@ -3,10 +3,11 @@ package main
 import (
 	"sort"
 
-	"github.com/lgnixai/ollamax"
 	"github.com/olekukonko/tablewriter"
-	"github.com/ollama/ollama/format"
 	"github.com/spf13/cobra"
+
+	"github.com/lgnixai/ollamax"
+	"github.com/ollama/ollama/format"
 )
 
 func listCMD() *cobra.Command {
@@ -15,6 +16,7 @@ func listCMD() *cobra.Command {
 		Short: "list all models",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			models, err := ollamax.ListModel()
+
 			if err != nil {
 				return err
 			}

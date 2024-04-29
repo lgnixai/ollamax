@@ -10,10 +10,12 @@ import (
 	"path/filepath"
 	"strings"
 
+	"golang.org/x/crypto/ssh"
+
 	"github.com/ollama/ollama/api"
+	`github.com/ollama/ollama/gpu`
 	"github.com/ollama/ollama/llm"
 	"github.com/ollama/ollama/server"
-	"golang.org/x/crypto/ssh"
 )
 
 func modelOptions(model *server.Model, requestOpts map[string]interface{}) (api.Options, error) {
@@ -30,7 +32,7 @@ func modelOptions(model *server.Model, requestOpts map[string]interface{}) (api.
 }
 
 type llmWrapper struct {
-	*llm.LlamaServer
+	llm.LlamaServer
 	*server.Model
 }
 
@@ -40,8 +42,16 @@ func load(modelName string) (*llmWrapper, error) {
 		return nil, err
 	}
 	var opts, _ = modelOptions(model, nil)
+	gpus := gpu.GetGPUInfo()
 
-	llmRunner, err := llm.NewLlamaServer(model.ModelPath, model.AdapterPaths, model.ProjectorPaths, opts)
+	//fmt.Println(opts.NumCtx)
+	//fmt.Println(opts)
+	var ggml *llm.GGML
+	ggml, err = llm.LoadModel(model.ModelPath)
+	//fmt.Println(int(ggml.KV().ContextLength()))
+	//return nil, nil
+	llmRunner, err := llm.NewLlamaServer(gpus, model.ModelPath, ggml, model.AdapterPaths, model.ProjectorPaths, opts)
+
 	if err != nil {
 		// some older models are not compatible with newer versions of llama.cpp
 		// show a generalized compatibility error until there is a better way to

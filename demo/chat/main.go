@@ -13,12 +13,13 @@ import (
 	"syscall"
 
 	"github.com/fatih/color"
+
 	"github.com/lgnixai/ollamax"
 	"github.com/ollama/ollama/api"
 )
 
 var (
-	model = flag.String("model", "qwen:0.5b", "model to use")
+	model = flag.String("model", "qwen:7b", "model to use")
 )
 
 func main() {
